@@ -1,1 +1,0 @@
-import{j as n,a as o}from"./index-CT_Sa0Mt.js";function d({children:e,className:t,variant:r="default"}){return n.jsx("span",{className:o("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",r==="outline"?"border-white/15 text-muted-foreground":"bg-brand-500/15 text-brand-400",t),children:e})}export{d as B};

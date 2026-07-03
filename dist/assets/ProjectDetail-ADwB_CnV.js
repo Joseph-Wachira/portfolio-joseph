@@ -1,1 +1,0 @@
-import{j as e}from"./index-CT_Sa0Mt.js";function t(){return e.jsx("section",{className:"px-6 py-20",children:e.jsx("div",{className:"mx-auto max-w-6xl",children:e.jsx("h1",{className:"text-4xl font-semibold",children:"Project Details"})})})}export{t as default};
