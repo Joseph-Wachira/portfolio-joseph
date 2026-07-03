@@ -1,0 +1,1 @@
+import{j as e}from"./index-CaGXWwAo.js";function s(){return e.jsx("section",{className:"px-6 py-20",children:e.jsxs("div",{className:"mx-auto max-w-6xl text-center",children:[e.jsx("h1",{className:"text-4xl font-semibold",children:"404"}),e.jsx("p",{className:"mt-4 text-muted-foreground",children:"Page not found."})]})})}export{s as default};
