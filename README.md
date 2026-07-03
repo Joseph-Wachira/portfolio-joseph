@@ -1,6 +1,6 @@
 # Joseph Wachira - Software Engineer Portfolio
 
-A premium, production-ready personal portfolio showcasing my work, skills, and photography.
+A premium, production-ready personal portfolio showcasing my work and skills.
 
 ## Features
 - Dark/light mode with glassmorphism and aurora gradients
