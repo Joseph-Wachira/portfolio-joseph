@@ -1,1 +1,0 @@
-import{j as e}from"./index-CaGXWwAo.js";function t(){return e.jsx("section",{className:"px-6 py-20",children:e.jsxs("div",{className:"mx-auto max-w-6xl",children:[e.jsx("h1",{className:"text-4xl font-semibold",children:"About"}),e.jsx("p",{className:"mt-4 text-muted-foreground",children:"Information about Joseph Wachira will appear here."})]})})}export{t as default};
