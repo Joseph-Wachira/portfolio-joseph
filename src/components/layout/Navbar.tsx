@@ -28,7 +28,7 @@ export function Navbar() {
       />
       <div className="glass-strong mx-auto mt-4 max-w-5xl rounded-full px-6 py-3 flex items-center justify-between">
         <Link to="/" className="text-lg font-bold tracking-tight">
-          <span className="text-gradient">JW</span>
+          <span className="text-gradient">JOE.dev</span>
         </Link>
         <div className="hidden md:flex items-center gap-6">
           {links.map(link => (
