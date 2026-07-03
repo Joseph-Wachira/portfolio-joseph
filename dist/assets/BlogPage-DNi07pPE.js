@@ -1,1 +1,0 @@
-import{j as s}from"./index-CW_jBpvV.js";function a(){return s.jsx("section",{className:"px-6 py-20",children:s.jsx("div",{className:"mx-auto max-w-6xl",children:s.jsx("h1",{className:"text-4xl font-semibold",children:"Blog"})})})}export{a as default};
