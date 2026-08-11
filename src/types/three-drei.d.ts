@@ -1,16 +1,34 @@
 declare module '@react-three/fiber' {
-  import type { ReactNode } from 'react';
-  import type * as THREE from 'three';
+  export interface ViewportState {
+    width: number;
+    height: number;
+  }
 
-  export type ThreeEvent<T = Event> = T;
-  export type RootState = any;
+  export interface PointerState {
+    x: number;
+    y: number;
+  }
 
-  export function Canvas(props: any): any;
-  export function useFrame(callback: (state: any) => void): void;
-  export function useThree(): any;
-}
+  export interface ClockState {
+    getElapsedTime(): number;
+  }
 
-declare module 'three' {
-  const THREE: any;
-  export = THREE;
+  export interface ThreeState {
+    viewport: ViewportState;
+    pointer: PointerState;
+    clock: ClockState;
+  }
+
+  export interface CanvasProps {
+    camera?: {
+      position?: [number, number, number];
+      fov?: number;
+    };
+    style?: React.CSSProperties;
+    children?: React.ReactNode;
+  }
+
+  export function Canvas(props: CanvasProps): JSX.Element;
+  export function useFrame(callback: (state: ThreeState) => void): void;
+  export function useThree(): ThreeState;
 }

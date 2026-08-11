@@ -1,49 +1,45 @@
-import { forwardRef, ButtonHTMLAttributes } from 'react';
+import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { Slot } from '@radix-ui/react-slot';
-import { cva, type VariantProps } from 'class-variance-authority';
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 disabled:pointer-events-none disabled:opacity-50',
-  {
-    variants: {
-      variant: {
-        default: 'bg-brand-500 text-white hover:bg-brand-600 shadow-lg shadow-brand-500/20',
-        outline: 'border border-white/20 bg-transparent hover:bg-white/5 text-white',
-        ghost: 'hover:bg-white/5 text-white',
-      },
-      size: {
-        default: 'h-10 px-5 py-2',
-        sm: 'h-8 px-3 text-xs',
-        lg: 'h-12 px-8 text-base',
-        icon: 'h-10 w-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  }
-);
-
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'default' | 'outline' | 'ghost';
+  size?: 'default' | 'sm' | 'lg';
   asChild?: boolean;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button';
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'default', size = 'default', asChild = false, children, ...props }, ref) => {
+    const Comp = asChild ? 'span' : 'button';
+    
+    const variantStyles = {
+      default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+      outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+      ghost: 'hover:bg-accent hover:text-accent-foreground',
+    };
+
+    const sizeStyles = {
+      default: 'h-10 px-4 py-2',
+      sm: 'h-9 px-3 text-sm',
+      lg: 'h-11 px-8 text-base',
+    };
+
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+        className={cn(
+          'inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+          variantStyles[variant],
+          sizeStyles[size],
+          className
+        )}
+        ref={asChild ? undefined : ref}
+        {...(asChild ? {} : props)}
+      >
+        {children}
+      </Comp>
     );
   }
 );
+
 Button.displayName = 'Button';
 
-export { Button, buttonVariants };
+export { Button };
