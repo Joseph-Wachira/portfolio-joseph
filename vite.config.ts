@@ -8,4 +8,16 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor libraries
+          'react-vendor': ['react', 'react-dom'],
+          'animation-vendor': ['framer-motion', 'gsap', '@gsap/react'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
 });
