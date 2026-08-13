@@ -25,8 +25,6 @@ dist-ssr
 *.sw?
 
 # Environment variables
-.env
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -108,3 +106,4 @@ $RECYCLE.BIN/
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+config.bat

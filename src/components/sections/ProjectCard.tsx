@@ -77,7 +77,7 @@ export function ProjectCard({ project, index = 0 }: { project: Project; index?: 
       />
 
       {/* Project Image */}
-      <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-red-950/30 to-black">
+      <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/10 to-background">
         <motion.div
           style={{ transform: 'translateZ(20px)' }}
           className="h-full w-full"

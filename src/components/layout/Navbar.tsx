@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -17,12 +17,6 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('#home');
-  const { scrollY } = useScroll();
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.8)']
-  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,14 +60,13 @@ export function Navbar() {
   return (
     <motion.nav
       className="fixed top-0 z-50 w-full"
-      style={{ backgroundColor }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className={cn(
         'mx-auto px-6 py-4 transition-all duration-300',
-        scrolled ? 'max-w-full backdrop-blur-xl border-b border-red-900/20 bg-black/40' : 'max-w-7xl'
+        scrolled ? 'max-w-full backdrop-blur-xl border-b border-border bg-background/70' : 'max-w-7xl'
       )}>
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -106,16 +99,16 @@ export function Navbar() {
                   onClick={(e) => handleClick(e, link.to)}
                   className={cn(
                     'relative text-sm font-medium transition-colors',
-                    activeSection === link.to 
-                      ? 'text-red-500' 
-                      : 'text-gray-400 hover:text-white'
+                    activeSection === link.to
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-foreground'
                   )}
                 >
                   {link.label}
                   {activeSection === link.to && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
