@@ -11,7 +11,7 @@ export const FloatingElements = ({ count = 5, className = '' }: FloatingElements
       {Array.from({ length: count }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-primary-500/20 dark:bg-primary-400/20 rounded-full"
+          className="absolute w-2 h-2 bg-primary/20 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

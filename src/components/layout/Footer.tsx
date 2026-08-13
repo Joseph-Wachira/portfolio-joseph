@@ -11,7 +11,7 @@ export function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="border-t border-white/10 py-10">
+    <footer className="border-t border-border py-10">
       <div className="container mx-auto max-w-6xl px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex gap-4">
           {socials.map(social => (
@@ -32,7 +32,7 @@ export function Footer() {
         </p>
         <button
           onClick={scrollToTop}
-          className="p-2 rounded-full glass hover:bg-white/10 transition"
+          className="p-2 rounded-full glass hover:bg-foreground/10 transition"
           aria-label="Back to top"
         >
           <ArrowUp size={16} />
