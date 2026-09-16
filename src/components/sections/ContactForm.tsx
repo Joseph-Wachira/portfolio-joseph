@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin } from 'lucide-react';
 import { RevealText } from '@/components/animations/RevealText';
 import { ParallaxSection } from '@/components/animations/ParallaxSection';
+import { profile } from '@/config/profile';
+import { socials } from '@/config/socials';
 
 export function ContactForm() {
+  const linkedin = socials.find(social => social.name === 'LinkedIn')?.url;
+
   return (
     <section className="px-6 py-32 relative overflow-hidden">
       {/* Background decoration */}
@@ -39,9 +43,9 @@ export function ContactForm() {
           </motion.div>
 
           {/* Contact Info Cards */}
-          <div className="grid gap-6 md:grid-cols-3 mb-12">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
             <motion.a
-              href="mailto:joseph@example.com"
+              href={`mailto:${profile.email}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -58,12 +62,34 @@ export function ContactForm() {
               </motion.div>
               <h3 className="text-sm font-semibold mb-1">Email</h3>
               <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
-                Get in touch via email
+                {profile.email}
               </p>
             </motion.a>
 
             <motion.a
-              href="https://www.linkedin.com/in/joseph-wachira"
+              href={`tel:${profile.phone.replace(/\s+/g, '')}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              whileHover={{ y: -5 }}
+              className="glass-strong rounded-xl p-6 text-center group cursor-pointer"
+            >
+              <motion.div
+                whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary mb-4"
+              >
+                <Phone className="w-6 h-6" />
+              </motion.div>
+              <h3 className="text-sm font-semibold mb-1">Phone</h3>
+              <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                {profile.phone}
+              </p>
+            </motion.a>
+
+            <motion.a
+              href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
@@ -78,7 +104,7 @@ export function ContactForm() {
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary mb-4"
               >
-                <Phone className="w-6 h-6" />
+                <Linkedin className="w-6 h-6" />
               </motion.div>
               <h3 className="text-sm font-semibold mb-1">LinkedIn</h3>
               <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
@@ -90,7 +116,7 @@ export function ContactForm() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.25 }}
               whileHover={{ y: -5 }}
               className="glass-strong rounded-xl p-6 text-center group"
             >
@@ -103,7 +129,7 @@ export function ContactForm() {
               </motion.div>
               <h3 className="text-sm font-semibold mb-1">Location</h3>
               <p className="text-sm text-muted-foreground">
-                Nairobi, Kenya
+                {profile.location}
               </p>
             </motion.div>
           </div>
@@ -121,7 +147,7 @@ export function ContactForm() {
               I'm currently available for freelance work and open to discussing new opportunities.
             </p>
             <motion.a
-              href="mailto:joseph@example.com"
+              href={`mailto:${profile.email}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"

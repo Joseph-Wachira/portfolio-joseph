@@ -1,10 +1,9 @@
 import { socials } from '@/config/socials';
-import { Github, Linkedin, Instagram, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, ArrowUp } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
   github: <Github size={18} />,
   linkedin: <Linkedin size={18} />,
-  instagram: <Instagram size={18} />,
 };
 
 export function Footer() {
