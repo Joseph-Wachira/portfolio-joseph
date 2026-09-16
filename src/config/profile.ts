@@ -2,9 +2,10 @@ export const profile = {
   name: 'Joseph Wachira',
   title: 'Software Engineer',
   headline: 'Building scalable software, modern web experiences, and digital products that solve real-world problems.',
-  location: 'Kenya',
+  location: 'Nairobi, Kenya',
   email: 'josephwachira505@gmail.com',
-  bio: `I am a Computer Science graduate and software engineer passionate about designing and building modern digital products. I specialize in creating scalable full-stack applications, interactive user interfaces, and efficient backend systems using modern technologies. Beyond software engineering, photography has strengthened my creative eye, influencing how I think about design, storytelling, and UX.`,
+  phone: '+254 727 572310',
+  bio: `Full-stack developer building production web applications across React/Next.js frontends, NestJS/Node.js backends, and PostgreSQL databases. Currently developing full-stack features — including billing, security, and workspace-management functionality — for a property management platform at Figbloom Digital Group Ltd, covering API design, database modeling, authentication, payment integration, and deployment. Comfortable owning a feature from database schema through UI, integration, debugging, and production release.`,
   stats: [
     { label: 'Years Experience', value: '3+' },
     { label: 'Projects Completed', value: '20+' },
